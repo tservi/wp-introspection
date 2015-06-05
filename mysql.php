@@ -4,7 +4,7 @@ function create_table_row( $cst, $txt )
 {
     echo "<tr>\r\n";
     echo "<td><strong>";
-    _e($txt , 'introspection');
+    _e($txt , 'wp_introspection');
     echo "</strong></td>\r\n<td>";
     echo $cst;
     echo "</td>\r\n";
@@ -38,7 +38,7 @@ foreach( $tables as $v )
         echo  $v[0];
         $columns = $wpdb->get_results( 'show columns from ' . $v[0] , ARRAY_A);
         echo " ( " . count($columns) . " ";
-        _e("rows", 'introspection' );
+        _e("rows", 'wp_introspection' );
         echo " )";
         echo "<ol class='columns' >\r\n";
         foreach($columns as $column)
@@ -60,7 +60,7 @@ foreach( $tables as $v )
 }
 echo "</ol>\r\n";
 echo "<strong>";
-_e('Total of tables : ', 'introspection');
+_e('Total of tables : ', 'wp_introspection');
 echo count($tables);
 echo "</strong>";
 echo "<br/>\r\n";

@@ -44,12 +44,12 @@ if(isset($_REQUEST['action']))
     }
     
 
-_e("Your document root on this system : " , 'introspection');
+_e("Your document root on this system : " , 'wp_introspection');
 echo "<a href='". $link . "&action=go_home' class='home_link'>" ;
 echo $document_root;
 echo "</a>";
 echo "<br/>";
-_e("Your actual position on the hdd : ", 'introspection');
+_e("Your actual position on the hdd : ", 'wp_introspection');
 echo "<a href='". $link . "&action=go_home' class='home_link'>" ;
 echo $document_root;
 echo "</a>";
