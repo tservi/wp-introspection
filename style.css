@@ -1,0 +1,71 @@
+a {
+    text-decoration : none;
+    color: black;
+}
+a:hover {
+    color:black;
+}
+
+#tabs div {
+    min-width: 20%;
+    display: inline-block;
+    text-align: center;
+    }   
+.tab a:before {
+    content:' ' ;
+    }
+#tabs span:after{
+    content : ' | '
+}
+.tab:hover {background-color: darkgrey;}
+#activ {background-color:red;}
+#tabs {
+    width:95%;
+    height:30px;
+    margin: auto;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+
+a.breadcrumb_link:hover {
+    text-decoration:underline
+}
+
+
+a.directory_link:hover {
+    text-decoration:underline
+}
+a.directory_link:before {
+font-family: "dashicons";
+content: "\f344";
+}
+
+a.file_link:before {
+font-family: "dashicons";
+content: "\f498";
+}
+
+a.php_link:before {
+font-family: "dashicons";
+content: "\f179";
+}
+
+a.home_link:before {
+font-family: "dashicons";
+content: "\f102";    
+}
+a.home_link:hover {
+    text-decoration:underline
+}
+
+//#editor { 
+//        position: absolute;
+//        top: 0;
+//        right: 0;
+//        bottom: 0;
+//        left: 0;
+//}
