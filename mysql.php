@@ -48,13 +48,6 @@ if(is_admin())
                 echo "<li>";
                 echo $column['Field'];
                 echo " " ;
-                //echo $column['Type'];
-                /*
-                foreach($column as $key=>$val)
-                {
-                    echo  $key . ":" . $val . "/";
-                }
-                */
                 echo "</li>\r\n";
             }
             echo "</ol>\r\n";
@@ -69,34 +62,19 @@ if(is_admin())
     
     
     ?>
-    <style>
-        .invisible {display:none;}
-    </style>
+   
     <script language="javascript">
-        $.noConflict();
+        //jQuery.noConflict();
         jQuery(document).ready(
              function($)
             {
-                //self.alert("hello")
-                //$('.tables li ol').selectable()
-                //$('.tables li ol').toggleClass("invisible")
                 $('.columns').toggleClass("invisible")
-                //$('.tables li ol').click(
                 $('.tables li').click(
                     function () {
-                    //self.alert("Hello ")
-                    //var ol_li = $(this).children("ol")
                     $(this).find(".columns").toggleClass("invisible")
                     
                     }
                 )
-                //$('.tables li ').accordion()
-                //var tables = $('ol.tables')
-                //for (prop in tables) {
-                //    self.alert(prop + " = " + tables[prop])
-                //}
-                //self.alert($('ol.tables'))//.selectable()
-                //$('ol.tables').accordion()
             }
             )
         

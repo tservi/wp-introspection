@@ -38,10 +38,11 @@ add_action( 'admin_head', 'admin_wp_introspection_javascript_link' );
 
 function admin_wp_introspection_javascript_link()
 {
-echo '<script language="javascript" src="https://code.jquery.com/jquery-2.1.3.js" ></script>';
+// echo '<script language="javascript" src="https://code.jquery.com/jquery-2.1.3.js" ></script>';
+ wp_enqueue_script( 'jquery' );
 // voir http://www.cdolivet.com/editarea/?page=editArea
-echo '<script language="javascript" src="http://www.cdolivet.com/editarea/editarea/edit_area/edit_area_full.js" ></script>';
-//echo '<script language="javascript" src="https://code.jquery.com/ui/1.11.3/jquery-ui.js" ><script>';
+echo '<script language="javascript" src="' . plugin_dir_url( __FILE__ )  . '/javascript/editarea_0_8_2/edit_area/edit_area_full.js" ></script>';
+
 
 
 ?>
