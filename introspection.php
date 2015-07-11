@@ -76,46 +76,56 @@ function wp_introspection_init(){
             {
                 echo "<div class='error_div'>" . $error_message . "</div>";
             }
-        
-        echo "<h1>WP Introspection</h1>";
-    
-        //var_dump($GLOBALS['wp_scripts']);
-        $all_tabs= [
-                    ["hd","Hard Disk","choosefilesordirectories.php"],
-                    ["mysql", "MySql","mysql.php"],
-                    ["objects", "Objects" , "objects.php"]
-                    ];
-        
-        echo "<div id='tabs'>";
-        _e("What to inspect : " , 'wp_introspection');
-        foreach($all_tabs as $tab )
+        if(is_admin())
         {
-            echo "<div class='tab'";
-            if($_REQUEST['tab']==$tab[0])
-            {echo " id='activ' ";}
-            echo ">";
-            echo "<a href='".$link."&tab=".$tab[0]."'>";
-            _e($tab[1] , 'wp_introspection');
-            echo "</a>\r\n";
-            echo "</div>";  
-                
-        }
+            echo "<h1>WP Introspection</h1>";
         
-        
-        echo "</div>";
-        $found = FALSE;
-        foreach($all_tabs as $tab)
-        {
-            if($_REQUEST['tab'] ==$tab[0])
+            $all_tabs= [
+                        ["hd","Hard Disk","choosefilesordirectories.php"],
+                        ["mysql", "MySql","mysql.php"],
+                        ["objects", "Objects" , "objects.php"]
+                        ];
+            /* For generation of the po file, write in this comment all your instructions in "clear".
+            _e( 'Hard Disk', 'wp_introspection');
+            _e( 'MySql', 'wp_introspection');
+            _e( 'Objects', 'wp_introspection');
+            */
+            echo "<div id='tabs'>";
+            _e("What to inspect : " , 'wp_introspection');
+            foreach($all_tabs as $tab )
             {
-                include_once($tab[2]);
-                $found = TRUE;
+                echo "<div class='tab'";
+                if($_REQUEST['tab']==$tab[0])
+                {echo " id='activ' ";}
+                echo ">";
+                echo "<a href='".$link."&tab=".$tab[0]."'>";
+                _e($tab[1] , 'wp_introspection');
+                echo "</a>\r\n";
+                echo "</div>";  
+                    
             }
+            
+            
+            echo "</div>";
+            $found = FALSE;
+            foreach($all_tabs as $tab)
+            {
+                if($_REQUEST['tab'] ==$tab[0])
+                {
+                    include_once($tab[2]);
+                    $found = TRUE;
+                }
+            }
+            
+            if(!$found)
+            {
+                include_once("choosefilesordirectories.php");   
+            }
+            
         }
-        
-        if(!$found)
+        else
         {
-            include_once("choosefilesordirectories.php");   
+             _e('OOOups! You don\'t have the rights!!!' , 'wp_introspection');
         }
         
 }
