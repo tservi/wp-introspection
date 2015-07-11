@@ -31,7 +31,7 @@ add_action( 'admin_head', 'admin_wp_introspection_css_link' );
 
 function admin_wp_introspection_css_link()
 {
-echo '<link rel="stylesheet" type="text/css" href="' . plugin_dir_url( __FILE__ )  . '/style.css">';
+echo '<link rel="stylesheet" type="text/css" href="' . plugin_dir_url( __FILE__ )  . '/css/style.css">';
 }
 
 add_action( 'admin_head', 'admin_wp_introspection_javascript_link' );
